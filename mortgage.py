@@ -5,18 +5,20 @@ class Mortgage:
                  apr, 
                  loan_total, 
                  loan_duration, 
-                 down_payment = 0):
+                 down_payment = 0,
+                 monthly_overage = 0):
         # params
         self.apr = apr
         self.loan_total = loan_total
         self.loan_duration = loan_duration
         self.down_payment = down_payment
+        print(monthly_overage)
 
         # values based off params
         self.principal = self.loan_total - self.down_payment
         self.monthly_apr = self.apr / 12
         self.min_monthly_payment = self.calc_monthly_payment()
-        self.monthly_payment = self.min_monthly_payment
+        self.monthly_payment = self.min_monthly_payment + monthly_overage
 
         self.calculate()
 
